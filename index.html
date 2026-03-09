@@ -102,27 +102,49 @@
     margin-top: 8px; max-width: 620px; line-height: 1.5;
   }
 
-  /* ── Stat cards ── */
-  .stat-row { display: flex; gap: 20px; margin: 36px 0 0; flex-wrap: wrap; }
-  .stat-card {
-    flex: 1; min-width: 160px; max-width: 240px;
+  /* ── Quick-start navigator ── */
+  .quickstart-section { margin: 32px 0 0; }
+  .quickstart-label {
+    font-family: "Trebuchet MS", sans-serif;
+    font-weight: 700; color: var(--navy);
+    margin-bottom: 16px; letter-spacing: .3px;
+    text-transform: uppercase; opacity: .55; font-size: 11px;
+  }
+  .quickstart-grid { display: flex; gap: 14px; flex-wrap: wrap; }
+  .quickstart-card {
+    flex: 1; min-width: 200px;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 10px;
-    padding: 28px 24px 24px;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    padding: 20px 20px 18px;
+    cursor: pointer;
+    transition: box-shadow .2s, transform .15s, border-color .2s;
     position: relative; overflow: hidden;
   }
-  .stat-card::before {
+  .quickstart-card:hover {
+    box-shadow: 0 6px 20px rgba(0,120,212,.12);
+    transform: translateY(-2px);
+    border-color: var(--blue);
+  }
+  .quickstart-card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0;
-    height: 3px; background: var(--blue);
+    height: 3px;
   }
-  .stat-number {
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 40px; font-weight: 700; color: var(--navy);
+  .quickstart-stage {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .5px; margin-bottom: 6px;
   }
-  .stat-label { font-size: 13px; color: var(--mgray); margin-top: 4px; letter-spacing: .3px; }
+  .quickstart-question {
+    font-size: 14px; font-weight: 700; color: var(--navy);
+    line-height: 1.3; margin-bottom: 6px;
+  }
+  .quickstart-answer {
+    font-size: 12px; color: var(--mgray); line-height: 1.4;
+  }
+  .quickstart-arrow {
+    font-size: 12px; color: var(--blue); font-weight: 600;
+    margin-top: 10px; display: inline-block;
+  }
 
   /* ── Purpose Flow ── */
   .purpose-flow-section { margin: 48px 0 40px; }
@@ -329,25 +351,27 @@ const ASSETS = [
     name: "Eval Convo in CAD Pitch Deck",
     type: "Presentation",
     purposeGroup: "why",
+    oneliner: "Pitch deck for introducing agent evals during customer architecture design sessions.",
     how: ["Presentation deck"],
     where: ["Customer Workshop"],
-    summary: "A CAD (Customer Architecture Design) pitch deck focused on introducing Agent Evaluation early in customer engagements. It explains what agent evals are, why they matter, and when to start, then positions Eval MVP introduction during CAD.",
+    summary: "A pitch deck for Customer Architecture Design (CAD) sessions that introduces Agent Evaluation early in customer engagements. Explains what agent evals are, why they matter, and when to start, then positions an Eval MVP during CAD.",
     purpose: "Establish eval-first thinking during CAD, not post-deployment. Align customer teams on what \u201cgood\u201d means for their agent. Introduce a lightweight Eval MVP: key scenarios, test prompts, acceptance criteria. Set expectations that evals evolve iteratively.",
     links: [
-      { label: "SharePoint", url: "https://microsoft-my.sharepoint-df.com/personal/serenaxie_microsoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B19863B26-E00B-4C99-904B-281A5AED40EE%7D&file=eval%20convo%20in%20CAD%20pitch%20deck.pptx&action=edit&mobileredirect=true" }
+      { label: "Open deck (SharePoint)", url: "https://microsoft-my.sharepoint-df.com/personal/serenaxie_microsoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B19863B26-E00B-4C99-904B-281A5AED40EE%7D&file=eval%20convo%20in%20CAD%20pitch%20deck.pptx&action=edit&mobileredirect=true" }
     ]
   },
   {
     id: 2,
     name: "Ground School Session",
     type: "Training",
-    purposeGroup: "why",
+    purposeGroup: "learn",
+    oneliner: "Comprehensive training covering eval theory, design, and hands-on execution across multiple tools.",
     how: ["Presentation deck", "Demo/walkthrough"],
     where: ["Internal Enablement", "Customer Workshop"],
-    summary: "A foundational, end-to-end training deck designed as a \u201cground school\u201d for AI agent evaluation. It introduces why evals are necessary, clarifies what evals are (and are not), explains when to start, and goes deep into how to design eval sets, write acceptance criteria, choose evaluation methods, and run evals using internal, Copilot Studio, Azure, and third-party tooling. The session blends theory, concrete examples, demos, and hands-on exercises to build durable evaluation intuition.",
+    summary: "An end-to-end training session for AI agent evaluation. Covers why evals are necessary, what they are (and are not), when to start, and goes deep into designing eval sets, writing acceptance criteria, choosing evaluation methods, and running evals using Copilot Studio, Azure, and third-party tooling. Blends theory, concrete examples, demos, and hands-on exercises.",
     purpose: "Build foundational evaluation knowledge across the team. Provide a comprehensive, end-to-end understanding of agent evaluation from theory to execution. Equip practitioners to design eval sets, write acceptance criteria, and run evals across multiple tooling options.",
     links: [
-      { label: "SharePoint", url: "https://microsoft-my.sharepoint-df.com/personal/saraveen_microsoft_com/_layouts/15/Doc.aspx?sourcedoc=%7BE5B54EB1-33ED-4C7E-A600-936FF990E5A8%7D&file=AI%20Agent%20Evals%20-%20Ground%20School.pptx&action=edit&mobileredirect=true" }
+      { label: "Open training deck (SharePoint)", url: "https://microsoft-my.sharepoint-df.com/personal/saraveen_microsoft_com/_layouts/15/Doc.aspx?sourcedoc=%7BE5B54EB1-33ED-4C7E-A600-936FF990E5A8%7D&file=AI%20Agent%20Evals%20-%20Ground%20School.pptx&action=edit&mobileredirect=true" }
     ]
   },
   {
@@ -355,13 +379,14 @@ const ASSETS = [
     name: "AI Webinar: Agent Eval in Copilot Studio",
     type: "Training",
     purposeGroup: "learn",
+    oneliner: "45-min recorded webinar introducing the four-stage eval framework and Copilot Studio's eval capabilities.",
     how: ["Presentation deck"],
     where: ["Customer Workshop", "Internal Enablement", "Self-serve Resource"],
-    summary: "An AI webinar deck that introduces Agent Evaluation in Copilot Studio, explaining why evaluation matters, a four-stage evaluation framework, practical evaluation categories (core, variations, architecture, edge cases), and how to build, run, iterate, and operationalize agent evaluations directly within Copilot Studio.",
+    summary: "A recorded webinar introducing Agent Evaluation in Copilot Studio. Covers why evaluation matters, the four-stage evaluation framework, practical evaluation categories (core, variations, architecture, edge cases), and how to build, run, iterate, and operationalize agent evaluations directly within Copilot Studio.",
     purpose: "Educate on evaluation-driven agent development. Shift teams from demo-based confidence to measurable, outcome-based quality. Introduce Copilot Studio\u2019s Agent Evaluation capabilities and best practices. Demonstrate how to iterate confidently before and after deployment.",
     links: [
-      { label: "YouTube", url: "https://www.youtube.com/watch?v=lrY1DaaC1cQ&list=PLi9EhCY4z99Wu84AzycG6BKpaeX2OQbNI&index=3" },
-      { label: "PowerCAT zip", url: "https://microsoft.github.io/powercat/resources/Agent%20Evaluation%20in%20Copilot%20Studio%20-%20Customer%20Facing.zip" }
+      { label: "Watch recording (YouTube, 45 min)", url: "https://www.youtube.com/watch?v=lrY1DaaC1cQ&list=PLi9EhCY4z99Wu84AzycG6BKpaeX2OQbNI&index=3" },
+      { label: "Download slide deck (.zip)", url: "https://microsoft.github.io/powercat/resources/Agent%20Evaluation%20in%20Copilot%20Studio%20-%20Customer%20Facing.zip" }
     ]
   },
   {
@@ -369,12 +394,13 @@ const ASSETS = [
     name: "MS Learn: Design & Operationalize Agent Eval",
     type: "Reference",
     purposeGroup: "learn",
+    oneliner: "Guidance article on designing eval strategies, with a running Employee Self-Service Agent example.",
     how: ["Resources and Reference guide"],
     where: ["Self-serve Resource"],
-    summary: "A Microsoft Learn guidance article that explains how to design and operationalize agent evaluation in Copilot Studio. Defines agent evaluation, explains why it matters for business outcomes, and uses an Employee Self-Service Agent as a running example.",
+    summary: "A Microsoft Learn guidance article on how to design and operationalize agent evaluation in Copilot Studio. Defines agent evaluation, explains why it matters for business outcomes, and walks through an Employee Self-Service Agent as a running example.",
     purpose: "Provide conceptual guidance on agent evaluation. Explain what evaluation is and why it matters beyond technical testing. Connect evaluation practices to business outcomes (confidence, quality, scale). Prepare readers to design eval strategies before and during development.",
     links: [
-      { label: "learn.microsoft.com", url: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-overview" }
+      { label: "Read on Microsoft Learn", url: "https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/evaluation-overview" }
     ]
   },
   {
@@ -383,12 +409,13 @@ const ASSETS = [
     type: "Framework",
     purposeGroup: "implement",
     implementSub: "design",
+    oneliner: "Tool-agnostic framework: Core \u2192 Baseline \u2192 Expand \u2192 Operationalize, with four eval categories.",
     how: ["Presentation deck", "Resources and Reference guide"],
     where: ["Customer Workshop", "Internal Enablement", "Self-serve Resource"],
-    summary: "A foundational framework deck introducing a general, tool-agnostic AI Agent Evaluation framework. It defines what agent evaluation is, why it matters, the prerequisites for starting, and a four-stage evaluation lifecycle (Core \u2192 Baseline \u2192 Expand \u2192 Operationalize), along with four evaluation categories.",
+    summary: "A tool-agnostic AI Agent Evaluation framework defining a four-stage evaluation lifecycle (Core \u2192 Baseline \u2192 Expand \u2192 Operationalize) and four evaluation categories. Covers what agent evaluation is, prerequisites for starting, and how to structure your eval approach.",
     purpose: "Create a common language and mental model for agent evaluation. Explain why evaluation is necessary beyond traditional testing. Provide a reusable evaluation framework that applies across agent types and tools. Enable eval-driven development thinking before development begins.",
     links: [
-      { label: "aka.ms/AgentEvalSetsFramework", url: "https://aka.ms/AgentEvalSetsFramework" }
+      { label: "Open framework deck", url: "https://aka.ms/AgentEvalSetsFramework" }
     ]
   },
   {
@@ -397,12 +424,13 @@ const ASSETS = [
     type: "Reference",
     purposeGroup: "implement",
     implementSub: "design",
+    oneliner: "70+ ready-made eval scenarios covering business outcomes, capabilities, compliance, and safety.",
     how: ["Resources and Reference guide"],
     where: ["Self-serve Resource", "Internal Enablement"],
-    summary: "An open-source scenario library providing ready-made evaluation scenarios, quality signals, and acceptance-criteria patterns. Covers business outcomes, capabilities, architecture behavior, compliance, and safety. Separates what the agent does from how it behaves internally.",
+    summary: "An open-source scenario library with ready-made evaluation scenarios, quality signals, and acceptance-criteria patterns. Covers business outcomes, capabilities, architecture behavior, compliance, and safety. Includes Claude Code integration for guided eval set generation.",
     purpose: "Accelerate eval design with pre-curated scenario patterns. Help teams identify which quality dimensions matter for their agent. Reduce blind spots by ensuring evals go beyond happy-path testing. Support comprehensive eval sets spanning outcomes and architecture.",
     links: [
-      { label: "GitHub", url: "https://github.com/microsoft/ai-agent-eval-scenario-library" }
+      { label: "View on GitHub (public)", url: "https://github.com/microsoft/ai-agent-eval-scenario-library" }
     ]
   },
   {
@@ -411,12 +439,13 @@ const ASSETS = [
     type: "Template",
     purposeGroup: "implement",
     implementSub: "design",
+    oneliner: "Fill-in template for documenting eval scenarios, test prompts, and acceptance criteria.",
     how: ["Template to fill"],
     where: ["Hands-on Lab", "Self-serve Resource"],
-    summary: "A minimum-viable Eval Set template used across CAD and FDE engagements to document key scenarios, test prompts, quality dimensions, and acceptance criteria. A living artifact reused as the canonical structure for customer-curated eval sets.",
+    summary: "A minimum-viable Eval Set template for documenting key scenarios, test prompts, quality dimensions, and acceptance criteria. Used across customer engagements as the canonical structure for eval sets.",
     purpose: "Provide a concrete, fill-in artifact for defining agent evaluation. Turn abstract evaluation guidance into structured, actionable inputs. Standardize how eval sets are captured across engagements. Enable reuse of eval sets across tools, runs, and lifecycle stages.",
     links: [
-      { label: "aka.ms/EvalsTemplate", url: "https://aka.ms/EvalsTemplate" }
+      { label: "Download template", url: "https://aka.ms/EvalsTemplate" }
     ]
   },
   {
@@ -425,12 +454,13 @@ const ASSETS = [
     type: "Playbook",
     purposeGroup: "implement",
     implementSub: "execute",
+    oneliner: "Step-by-step checklist to build, run, and maintain evals across the full lifecycle.",
     how: ["Template to fill", "Resources and Reference guide"],
     where: ["Hands-on Lab", "Self-serve Resource"],
-    summary: "A step-by-step process and checklist that operationalizes AI agent evaluation across the full lifecycle. Provides a four-stage structure (Foundational \u2192 Baseline \u2192 Expansion \u2192 Continuous Operation), test case templates, acceptance criteria guidance, and root-cause analysis.",
+    summary: "A step-by-step process and checklist that operationalizes AI agent evaluation across the full lifecycle. Provides a four-stage structure (Core \u2192 Baseline \u2192 Expand \u2192 Operationalize), test case templates, acceptance criteria guidance, and root-cause analysis.",
     purpose: "Translate evaluation principles into an actionable execution checklist. Standardize how evals are built, run, and maintained. Provide concrete artifacts for foundational test sets, baseline measurement, root-cause analysis, and continuous quality monitoring.",
     links: [
-      { label: "SharePoint", url: "https://microsofteur.sharepoint.com/:w:/t/OneCLS/IQD_RlynHdjVRpdd6_a_m3p1AbdPKUtFZshNJuBEn_NWeYg?e=M8uojs" }
+      { label: "Open checklist (SharePoint)", url: "https://microsofteur.sharepoint.com/:w:/t/OneCLS/IQD_RlynHdjVRpdd6_a_m3p1AbdPKUtFZshNJuBEn_NWeYg?e=M8uojs" }
     ]
   },
   {
@@ -439,12 +469,13 @@ const ASSETS = [
     type: "Playbook",
     purposeGroup: "implement",
     implementSub: "improve",
+    oneliner: "Diagnose why evals fail, classify root causes, and map to specific fixes.",
     how: ["Resources and Reference guide"],
     where: ["Internal Enablement", "Hands-on Lab", "Self-serve Resource"],
-    summary: "A GitHub-hosted playbook guiding triage and improvement after evaluation results are produced. Focuses on systematic analysis of eval failures and structured improvement loops rather than eval definition or execution.",
+    summary: "A playbook for triage and improvement after evaluation results are produced. Provides decision trees for classifying failures (eval setup vs. agent config vs. platform limitation), remediation mapping, and pattern analysis across failures.",
     purpose: "Provide a repeatable triage model once evals surface failures. Help teams move from \u201cthis test failed\u201d to root cause category to actionable fix. Close the loop between evaluation, diagnosis, improvement, and re-evaluation.",
     links: [
-      { label: "GitHub", url: "https://github.com/serenaxxiee/triage-and-improvement-playbook" }
+      { label: "View on GitHub (public)", url: "https://github.com/serenaxxiee/triage-and-improvement-playbook" }
     ]
   }
 ];
@@ -481,7 +512,7 @@ function AssetCard({ asset, defaultOpen }) {
       <div className="card-top">
         <div className="card-info">
           <div className="card-name">{asset.name}</div>
-          <div className="card-oneliner">{asset.summary.split('. ')[0]}.</div>
+          <div className="card-oneliner">{asset.oneliner}</div>
           <div className="card-badges">
             <span className={`badge ${TYPE_BADGE_CLS[asset.type]}`}>{asset.type}</span>
           </div>
@@ -511,34 +542,67 @@ function AssetCard({ asset, defaultOpen }) {
   );
 }
 
+const QUICKSTART_ITEMS = [
+  {
+    stage: "Starting out",
+    question: "\"I need to make the case for evals\"",
+    answer: "Get the pitch deck and business justification to bring eval-first thinking into your engagement.",
+    target: "why",
+    color: "#0078D4"
+  },
+  {
+    stage: "Building knowledge",
+    question: "\"I want to understand how evals work\"",
+    answer: "Watch the webinar, take the ground school training, or read the MS Learn guide to build your eval foundation.",
+    target: "learn",
+    color: "#107C10"
+  },
+  {
+    stage: "Ready to build",
+    question: "\"I need to design and run evals for my agent\"",
+    answer: "Use the framework, scenario library, and template to define what to test \u2014 then the checklist to execute.",
+    target: "implement",
+    color: "#D83B01"
+  },
+  {
+    stage: "Improving quality",
+    question: "\"My evals are failing \u2014 what do I fix?\"",
+    answer: "The triage playbook helps you classify failures, find root causes, and map to specific remediation actions.",
+    target: "implement",
+    color: "#8661C5"
+  }
+];
+
 /* ── Home View ── */
 function HomeView({ onPurposeClick }) {
-  const assetCount = ASSETS.length;
-  const purposeCount = PURPOSE_GROUPS.length;
-  const typeCount = [...new Set(ASSETS.map(a => a.type))].length;
-
   return (
     <div>
       <div className="anim-in">
         <h1 className="hero-title">Eval Enablement</h1>
-        <p className="hero-subtitle">A purpose-driven guide to evaluation-driven agent development resources</p>
+        <p className="hero-subtitle">Get your AI agents to production quality \u2014 frameworks, templates, and playbooks for every stage.</p>
       </div>
 
-      <div className="stat-row">
-        {[
-          { n: assetCount, l: "Assets" },
-          { n: purposeCount, l: "Purpose Groups" },
-          { n: typeCount, l: "Asset Types" }
-        ].map((s, i) => (
-          <div key={i} className={`stat-card anim-in anim-d${i + 1}`}>
-            <div className="stat-number">{s.n}</div>
-            <div className="stat-label">{s.l}</div>
-          </div>
-        ))}
+      <div className="quickstart-section">
+        <div className="quickstart-label anim-in">Where are you in your eval journey?</div>
+        <div className="quickstart-grid">
+          {QUICKSTART_ITEMS.map((item, i) => (
+            <div
+              key={i}
+              className={`quickstart-card anim-in anim-d${i + 1}`}
+              onClick={() => onPurposeClick(item.target)}
+              style={{ borderTop: `3px solid ${item.color}` }}
+            >
+              <div className="quickstart-stage" style={{ color: item.color }}>{item.stage}</div>
+              <div className="quickstart-question">{item.question}</div>
+              <div className="quickstart-answer">{item.answer}</div>
+              <div className="quickstart-arrow">{"\u2192"} View resources</div>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="purpose-flow-section">
-        <div className="purpose-flow-label">Purpose-Driven Eval Journey</div>
+        <div className="purpose-flow-label">Eval Journey Overview</div>
         <div className="purpose-flow">
           {PURPOSE_GROUPS.map((pg, i) => {
             const count = ASSETS.filter(a => a.purposeGroup === pg.key).length;
@@ -562,10 +626,9 @@ function HomeView({ onPurposeClick }) {
       </div>
 
       <div className="mission anim-in anim-d4">
-        Evaluation-driven development ensures agent quality is <strong>measured, not assumed</strong>.
-        The CAPE program provides frameworks, templates, training, and playbooks that guide teams
-        from defining what &ldquo;good&rdquo; means for their agent through systematic evaluation,
-        improvement, and operationalization.
+        Your agents should be <strong>measured, not just demo'd</strong>.
+        These resources take you from making the case for evals, through designing and running
+        your first eval set, to triaging failures and improving agent quality over time.
       </div>
     </div>
   );
